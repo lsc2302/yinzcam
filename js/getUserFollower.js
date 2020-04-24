@@ -20,7 +20,7 @@ $(document).ready(function(){
                 );
                 $('.user-repos').css('display','none');
                 $('.user-followers').css('display','none');
-                $(event.target).parent().find('.user-followers').html(user_gist_info).css('display','block');
+                $(event.target).parent().find('.user-followers').html(user_gist_info).toggle();
             }
         });
     })

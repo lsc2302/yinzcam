@@ -2,41 +2,108 @@
     margin: 0;
     padding: 0;
 }
-html,body{
-    display:flex;
-    flex-direction: column;
-    flex:1;
+html{
+    font-family:sans-serif;
+    line-height:1.15;
+}
+
+body{
+    font-size:2rem;
+    font-weight:400;
+    line-height:1.5;
+    color:#212529;
+    text-align:left;
+    background-color:#fff;
     height: 100%;
     width:100%;
-    font-size:x-large;
+}
+
+.container{
+    width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    margin-top:1rem;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+@media (min-width: 768px) {
+    .container{
+        max-width:720px;
+    }
+}
+@media (min-width: 576px) {
+    .container{
+        max-width:540px;
+    }
+}
+@media (min-width: 768px) {
+    .container{
+        max-width:720px;
+    }
+}
+@media (min-width: 768px) {
+    .container{
+        max-width:720px;
+    }
 }
 
 #search-box{
-    padding: 2vh 0;
-    height:calc(10vh - 1rem) !important;
     position:relative;
-    z-index:10 !important
+    height:10%;
+    max-height: 10%;
+    padding-top: 1vh;
+    padding-bottom: 0;
 }
 
-#search-box form{
-    width:100%;
-}
 
 #search-group{
-    height: 5vh !important;
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:stretch;
+    height: 5vh;
+    width:100%;
+    margin-bottom: 1rem;
 }
 
 #input{
-    height:5vh !important;
+    position:relative;
+    display:block;
+    flex:1 1;
+    width:100%;
+    padding:0 .75rem;
+    background-clip:padding-box;
+    border:1px solid #ced4da;
+    border-radius:.25rem;
+    transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin:0;
+    font-size:2rem;
+    font-weight:400;
+    overflow:visible;
 }
 
 #search-btn-wrapper{
-    height:5vh !important;
+    display: flex;
+    height:5vh;
+    margin-left: -1px;
+}
+
+#search{
+    display:flex;
+    align-items:center;
+    padding:.375rem .75rem;
+    margin-bottom:0;
+    text-align:center;
+    white-space:nowrap;
+    background-color:#e9ecef;
+    border:1px solid #ced4da;
+    border-radius:.25rem
 }
 
 #options{
-    display:none;
     position: absolute;
+    display:none;
     z-index:999;
     border:2px solid;
     top:7vh;
@@ -52,9 +119,24 @@ li {
 }
 
 #users-list-container{
-    height: calc(90vh);
+    height: 90%;
     max-height:90vh;
     overflow-y:scroll;
+}
+.card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    word-wrap:break-word;
+    border:1px solid rgba(0,0,0,.125);
+    border-radius:0.25em;
+}
+
+.card-body{
+    flex:1 1 auto;
+    min-height:1px;
+    padding:1.25rem;
 }
 
 .user-info{
@@ -66,8 +148,9 @@ li {
     width:5vh;
 }
 
-.card-body span{
+.card-body .login-display{
     cursor:pointer;
+    color:blue;
 }
 
 .user-repos{

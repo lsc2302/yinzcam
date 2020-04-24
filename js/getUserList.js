@@ -114,10 +114,13 @@ function getMoreUserInfo(){
                 response.reduce(function(previousValue, currentValue){
                         return previousValue+`
                     <div class="card user-info">
-                        <div class="card-body">
-                            <img src=${currentValue.avatar_url}>
-                            <span>User: ${currentValue.login}</span>
+                        <div class="card-body user-info-detail">
+                            <img src=${currentValue.avatar_url} class="avatar-display">
+                            <span class="login-display">User: ${currentValue.login}</span>
                         </div>
+                        <span class="followers-btn">followers</span>
+                        <div class="user-repos"></div>
+                        <div class="user-followers"></div>
                     </div>
                 `
                     }
