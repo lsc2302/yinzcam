@@ -45,13 +45,16 @@ $(document).ready(function() {
             window.location.reload();
         }
         else{
+            let found = 0;
             let userAvatar = '';
             for(let i=0;i<userData.length;i++){
                 if(userData[i]['login']=== userSelected){
                     userAvatar = userData[i]['avatar_url'];
+                    found=1;
                 }
             }
-            $("#users-list").html(`
+            if (found === 1){
+                $("#users-list").html(`
                     <div class="card user-info">
                         <div class="card-body user-info-detail">
                             <img src=${userAvatar} class="avatar-display">
@@ -62,6 +65,9 @@ $(document).ready(function() {
                         <div class="user-followers"></div>
                     </div>
                 `)
+            }else{
+                $("#users-list").html('');
+            }
         }
     });
 
@@ -105,7 +111,7 @@ $(document).ready(function() {
 
 //get more pages of user info
 function getMoreUserInfo(){
-    let curPage = localStorage.getItem('curPage');
+    let curPage = parseInt(localStorage.getItem('curPage'));
     $.ajax({
         url:'https://api.github.com/users?since='+(curPage+1).toString(),
         type: 'GET',
