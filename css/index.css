@@ -50,8 +50,8 @@ body{
 
 #search-box{
     position:relative;
-    height:10%;
-    max-height: 10%;
+    height:15%;
+    max-height: 15%;
     padding-top: 1vh;
     padding-bottom: 0;
 }
@@ -62,9 +62,8 @@ body{
     display:flex;
     flex-wrap:wrap;
     align-items:stretch;
-    height: 5vh;
+    height: 6vh;
     width:100%;
-    margin-bottom: 1rem;
 }
 
 #input{
@@ -85,14 +84,14 @@ body{
 
 #search-btn-wrapper{
     display: flex;
-    height:5vh;
+    height:6vh;
     margin-left: -1px;
 }
 
 #search{
     display:flex;
     align-items:center;
-    padding:.375rem .75rem;
+    padding:0rem .75rem;
     margin-bottom:0;
     text-align:center;
     white-space:nowrap;
@@ -119,7 +118,7 @@ li {
 }
 
 #users-list-container{
-    height: 90%;
+    height: 85%;
     max-height:90vh;
     overflow-y:scroll;
 }
@@ -165,5 +164,6 @@ li {
 
 
 .followers-btn{
+    cursor:pointer;
     color:blue;
 }
