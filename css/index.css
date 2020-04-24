@@ -101,7 +101,7 @@ body{
     background-color: white;
 }
 ul{
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
 li {
@@ -130,7 +130,7 @@ li {
 }
 
 .user-info{
-    margin-top:1vh !important;
+    margin-top:1vh;
 }
 
 .user-info img{
