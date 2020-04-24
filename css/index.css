@@ -42,7 +42,7 @@ html,body{
     cursor:pointer;
 }
 
-.user-gists{
+.user-repos{
     display: none;
     margin:1vh;
 }

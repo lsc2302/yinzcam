@@ -1,9 +1,8 @@
 $(document).ready(function(){
     $('#users-list').on('click', '.user-info .followers-btn', function(event){
-        let targetName = $(event.target).parent().find('.login-display').text();
+        let targetName = $(event.target).parent().find('.login-display').text().trim().substr(6);
         $.ajax({
-            url:'waste3.json',
-            // url: 'https://api.github.com/users/'+targetName+'/followers',
+            url: 'https://api.github.com/users/'+targetName+'/followers',
             type: 'GET',
             success: function (response) {
                 let user_gist_info = (
@@ -11,14 +10,14 @@ $(document).ready(function(){
                             return previousValue +  `
                                     <div class="card user-info user-followers-info">
                                         <div class="card-body user-followers-info-detail">
-                                            <span>${currentValue.login}</span>
+                                            <span>Follower： ${currentValue.login}</span>
                                         </div>
                                     </div>
                                 `
                         }
                         , ``)
                 );
-                $('.user-gists').css('display','none');
+                $('.user-repos').css('display','none');
                 $('.user-followers').css('display','none');
                 $(event.target).parent().find('.user-followers').html(user_gist_info).css('display','block');
             }

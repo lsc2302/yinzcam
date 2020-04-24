@@ -1,10 +1,9 @@
-import {Trie} from "./Trie.js";
+import {Trie} from "./trie.js";
 
 let userData = [];
 $(document).ready(function() {
         $.ajax({
-            url:'waste1.json',
-            // url: 'https://api.github.com/users?since=1',
+            url: 'https://api.github.com/users?since=1',
             type: 'GET',
             success: function (response) {
                 $("#users-list").append(
@@ -13,10 +12,10 @@ $(document).ready(function() {
                     <div class="card user-info">
                         <div class="card-body user-info-detail">
                             <img src=${currentValue.avatar_url} class="avatar-display">
-                            <span class="login-display">${currentValue.login}</span>
+                            <span class="login-display">User: ${currentValue.login}</span>
                         </div>
                         <span class="followers-btn">followers</span>
-                        <div class="user-gists"></div>
+                        <div class="user-repos"></div>
                         <div class="user-followers"></div>
                     </div>
                 `
@@ -53,10 +52,10 @@ $(document).ready(function() {
                     <div class="card user-info">
                         <div class="card-body user-info-detail">
                             <img src=${userAvatar} class="avatar-display">
-                            <span class="login-display">${userSelected}</span>
+                            <span class="login-display">User: ${userSelected}</span>
                         </div>
                         <span class="followers-btn">followers</span>
-                        <div class="user-gists"></div>
+                        <div class="user-repos"></div>
                         <div class="user-followers"></div>
                     </div>
                 `)
@@ -85,8 +84,12 @@ $(document).ready(function() {
                         $('#options').css('display','none');
                     });
                     if(optionData.length&&optionData.length !== 0){
-                        $('#options').css('display','block');
                         $('#options ul').html(options);
+                        $('#options').css('display','block');
+                    }else{
+                        $('#options ul').html('');
+                        $('#options').css('display','none');
+
                     }
                 }
             }
@@ -108,7 +111,7 @@ function getMoreUserInfo(){
                     <div class="card user-info">
                         <div class="card-body">
                             <img src=${currentValue.avatar_url}>
-                            <span>${currentValue.login}</span>
+                            <span>User: ${currentValue.login}</span>
                         </div>
                     </div>
                 `
