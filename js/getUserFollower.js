@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //request for user follower info
     $('#users-list').on('click', '.user-info .followers-btn', function(event){
         let targetName = $(event.target).parent().find('.login-display').text().trim().substr(6);
         $.ajax({

@@ -6,6 +6,7 @@ $(document).ready(function() {
             url: 'https://api.github.com/users?since=1',
             type: 'GET',
             success: function (response) {
+                //get info of users who are on the first page
                 $("#users-list").append(
                     response.reduce(function (previousValue, currentValue) {
                             return previousValue + `
@@ -27,6 +28,7 @@ $(document).ready(function() {
             }
         });
 
+        // infinite scroll
         $('#users-list-container').scroll(function () {
             let scrollTop = $(this).scrollTop();
             let scrollHeight = $('#users-list').height()+vh(1);
@@ -36,6 +38,7 @@ $(document).ready(function() {
             }
         });
 
+        // listen to user click search button
         $('#search').click(function(){
         let userSelected = $(' input').val();
         if(userSelected === ''){
@@ -62,6 +65,7 @@ $(document).ready(function() {
         }
     });
 
+    //listen to user typing
     $('#input').on('input',
         debounce(
             function(){
@@ -99,6 +103,7 @@ $(document).ready(function() {
     }
 );
 
+//get more pages of user info
 function getMoreUserInfo(){
     let curPage = localStorage.getItem('curPage');
     $.ajax({
@@ -124,11 +129,13 @@ function getMoreUserInfo(){
     })
 }
 
+//get pixels in 1 vh
 function vh(v) {
     let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     return (v * h) / 100;
 }
 
+//debounce function, for search hints
 function debounce(fun, time) {
     let timer = null;
     return function () {

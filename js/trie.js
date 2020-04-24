@@ -1,3 +1,4 @@
+//build a trie for prefix matching
 export class Trie {
     constructor() {
         this.root = new Map();

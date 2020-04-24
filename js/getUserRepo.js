@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //request for user repo info
     $('#users-list').on('click', '.user-info .user-info-detail', function(event){
         let targetName = event.target.innerText.trim().substr(6);
         $.ajax({
